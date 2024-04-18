@@ -26,7 +26,7 @@ public class HandleMenu {
 		
 		int id = getNextId();
 		
-		Usuario u = new Usuario(1, nome, senha);
+		Usuario u = new Usuario(id, nome, senha);
 		gs.adicionarUsuario(u);
 		
 	}
