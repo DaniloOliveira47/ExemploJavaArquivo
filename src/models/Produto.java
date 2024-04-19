@@ -16,6 +16,8 @@ public Produto(long id, String nome, double preco, int quantidade) {
 }
 
 
+
+
 public long getId() {
 	return id;
 }
@@ -39,6 +41,11 @@ public int getQuantidade() {
 }
 public void setQuantidade(int quantidade) {
 	this.quantidade = quantidade;
+}
+@Override
+
+public String toString() {
+	return id + ";"+ nome +";"+ preco +";"+ quantidade;
 }
  
  

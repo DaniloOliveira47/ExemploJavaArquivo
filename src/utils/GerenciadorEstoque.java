@@ -25,6 +25,7 @@ private static final String NOME_ARQUIVO = "estoque.txt";
 		if(arquivo.exists()) {
 			System.out.println("Estoque funcionando!");
 		} else {
+			 
 			
 			try {
 				arquivo.createNewFile();
@@ -34,6 +35,7 @@ private static final String NOME_ARQUIVO = "estoque.txt";
 			}
 		}
 	}
+	
 	
 	public void adicionarProduto(Produto produto) {
 	
@@ -46,16 +48,16 @@ private static final String NOME_ARQUIVO = "estoque.txt";
 		}
 	}
 	
+	
 	public List<Produto> lerProdutos() {
 		List<Produto> produtos = new ArrayList<Produto>();
 		
 		try (BufferedReader br = new BufferedReader(new FileReader(NOME_ARQUIVO))){
 			
 			String linha; 
-		
 			while((linha = br.readLine()) != null) {
 				String[] partes = linha.split(";"); 
-				produtos.add(new Produto(Integer.parseInt(partes[0]), partes[1], Integer.parseInt(partes[2]), Integer.parseInt(partes[3])));
+				produtos.add(new Produto(Long.parseLong(partes[0]), partes[1], Double.parseDouble(partes[2]), Integer.parseInt(partes[3])));
 			}
 		} catch (IOException e) {
 			System.out.println("Ocorreu um erro ao ler o arquivo: " + e.getMessage());
@@ -90,7 +92,7 @@ private static final String NOME_ARQUIVO = "estoque.txt";
     public void listarProdutos() {
     	List<Produto> produtos = lerProdutos();
     	// nenhum usuario
-    	if(produtos.isEmpty()) {
+    	if(!produtos.isEmpty()) {
     		System.out.println("Lista de usuarios");
     		for (Produto produto : produtos) {
     			System.out.println("ID: " + produto.getId() + ", Nome: " + "" + produto.getNome() + ", Preço: " + produto.getPreco() + ", Quantidade: " + produto.getQuantidade());

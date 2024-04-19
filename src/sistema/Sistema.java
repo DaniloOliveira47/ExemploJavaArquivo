@@ -17,7 +17,7 @@ public class Sistema {
 		do {
 			// \n
 			System.out.print(
-					"1 - Criar \n2 - Editar \n3 - Deletar \n4 - Listar \n5 - Listar único usuário \n6 - Criar Produto \n7 - Editar Produto \n8 - Deletar Produto \n9 - Listar Produto \n10 - Listar único produto \n11 - Sair\n");
+					"\nUSUÁRIOS\n1 - Criar usuário \n2 - Editar usuário \n3 - Deletar usuário \n4 - Listar usuários \n5 - Listar único usuário \n \nPRODUTOS \n6 - Criar Produto  \n7 - Editar Produto \n8 - Deletar Produto \n9 - Listar Produto \n10 - Listar único produto \n11 - Sair\n");
 
 			opcao = sc.nextInt();
 
@@ -30,6 +30,7 @@ public class Sistema {
 				hm.editar();
 				break;
 			}
+			
 			case 3: {
 				hm.deletar();
 				break;
@@ -44,18 +45,24 @@ public class Sistema {
 			}
 			case 6: {
 				hmp.criar();
+				break;
 			}
 			case 7: {
 				hmp.editar();
+				break;
 			}
 			case 8: {
 				hmp.deletar();
+				break;
 			}
 			case 9: {
 				hmp.listar();
+				break;
 			}
 			case 10: {
+				
 				hmp.listUnico();
+				break;
 			}
 			case 11:{
 				System.out.println("Sistema Finalizado");

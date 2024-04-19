@@ -31,7 +31,7 @@ public class GerenciadorDeUsuarios {
 			}
 		}
 	}
-	
+	 
 	public void adicionarUsuario(Usuario usuario) {
 		//Writer => Escrever
 		//BufferreWriter , FileWrite
@@ -51,7 +51,7 @@ public class GerenciadorDeUsuarios {
 		// Buffed, File, Reader
 		try (BufferedReader br = new BufferedReader(new FileReader(NOME_ARQUIVO))){
 			
-			String linha; //linha => 1;mome;senha
+			String linha; //linha => 1;nome;senha
 			//percorrer todas as linhas enquanto seja diferente de vazio
 			while((linha = br.readLine()) != null) {
 				String[] partes = linha.split(";"); //DIVIDIR EM TRES PARTES
@@ -71,8 +71,10 @@ public class GerenciadorDeUsuarios {
 			//Reescrevendo arquivo com novos usuarios e alterações
 		reescreverArquivo(usuarios);
 			System.out.println("Usuario deletado com sucesso");
+			
 		} else { 
 			System.out.println("Usuario nao encontrado");
+			
 			
 		}
 	}
@@ -94,10 +96,11 @@ public class GerenciadorDeUsuarios {
     public void listarUsuarios() {
     	List<Usuario> usuarios = lerUsuarios();
     	// nenhum usuario
-    	if(usuarios.isEmpty()) {
+    	if(!usuarios.isEmpty()) {
     		System.out.println("Lista de usuarios");
     		for (Usuario usuario : usuarios) {
     			System.out.println("ID: " + usuario.getId() + ", Nome: " + "" + usuario.getNome() + ", senha: " + usuario.getSenha());
+    			System.out.println();
     		}
     	}
     } 

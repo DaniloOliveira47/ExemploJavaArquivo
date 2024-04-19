@@ -18,13 +18,17 @@ public class HandleMenu {
 		//Toda vez que a classe menu, for instanciada, o nosso arquivo sera verificado
 		gs.verificaECria("usuarios.txt");
 	}
+	
 	public void criar() {
 		System.out.println("Digite o nome:");
 		String nome = sc.next();
+		
 		System.out.println("Digite sua Senha:");
 		String senha = sc.next();
 		
 		int id = getNextId();
+		
+		
 		
 		Usuario u = new Usuario(id, nome, senha);
 		gs.adicionarUsuario(u);
@@ -32,15 +36,16 @@ public class HandleMenu {
 	}
 	
 	public void editar() {
-		System.out.println("Digite oID do usuario:");
+		System.out.println("Digite o ID do usuario:");
 		int id = sc.nextInt();
 		System.out.println("Digite o novo nome:");
 		String nome = sc.next();
-		System.out.println("Digite a nova semha:");
+		System.out.println("Digite a nova senha:");
 		String senha = sc.next();
 		
 		gs.editarUsuario(id, nome, senha);
 	}
+	
 	
 	public void deletar () {
 		System.out.println("Digite o ID do usuario a ser deletado:");
